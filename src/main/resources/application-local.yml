@@ -1,0 +1,48 @@
+server:
+  port: ${APP_SERVER_PORT:8080}
+  shutdown: graceful
+  lifecycle:
+    timeout-per-shutdown-phase: 1m
+
+spring:
+  banner:
+    location: classpath:/logo/logo.txt
+  datasource:
+    url: jdbc:postgresql://3.110.214.90:5432/iairportdb
+    username: dbuser
+    password: admin2021
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: public
+        jdbc.lob.non_contextual_creation: true
+        open-in-view: false
+      show-sql: false
+      database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: update
+
+# Actuator configurations
+management:
+  info:
+    git:
+      enabled: true
+      mode: full
+  endpoints:
+    # disable all, then enable only the needed ones
+    enabled-by-default: false
+    jmx:
+      exposure:
+        include: "health,info,metrics,env"
+    web:
+      exposure:
+        include: "health,info"
+  endpoint:
+    info:
+      enabled: true
+    health:
+      enabled: true
+    metrics:
+      enabled: true
+    env:
+      enabled: true
