@@ -15,7 +15,7 @@
 	<description>iAirport project for selling</description>
 	<properties>
 		<java.version>11</java.version>
-		<start-class>com.ibs.iairport.commerce.Application</start-class>
+		<start-class>com.ibs.iairport.commerce.IAirportApplication</start-class>
         <springdoc-openapi.version>1.6.12</springdoc-openapi.version>
         <modelmapper.version>3.1.0</modelmapper.version>
         <maven.jacoco.version>0.8.7</maven.jacoco.version>
